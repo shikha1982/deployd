@@ -2,10 +2,8 @@ package com.devops.deployd.model;
 
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="user")
@@ -13,7 +11,10 @@ import javax.persistence.Table;
 @Builder
 public class User {
     @Id
+    @GeneratedValue()
     private Long id;
+    @Column(columnDefinition = "text")
     private String name;
+    @Column(columnDefinition = "boolean")
     private Boolean active;
 }
